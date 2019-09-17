@@ -5,7 +5,7 @@ export default class LifeCycle extends Component {
     super(props)
     console.log('构造函数')
   }
-  UNSAFE_componentWillMount  () {
+  componentWillMount  () {
     // 此时可以访问属性和状态，可以进行api调用，没办法做dom操作
     console.log('组件将要挂载')
   }
@@ -13,7 +13,7 @@ export default class LifeCycle extends Component {
     // 组件已挂载， 可以进行更新操作
     console.log('组件已经挂载')
   }
-  UNSAFE_componentWillReceiveProps  () {
+  componentWillReceiveProps  () {
     // 父组件传递的属性变化，做相应的响应
     console.log('组件属性更新了')
   }
@@ -21,7 +21,7 @@ export default class LifeCycle extends Component {
     console.log('组件是是否应该更新')
     return true
   }
-  UNSAFE_componentWillUpdate  () {
+  componentWillUpdate  () {
     console.log('组件将要更新')
   }
   componentDidUpdate () {
