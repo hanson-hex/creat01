@@ -3,14 +3,19 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import  "./App.css"
 import LifeCycle from "./LifeCycle";
+import CarSample from './CartSample'
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('root')
+// )
+
+// ReactDOM.render(
+//   <LifeCycle />,
+//   document.getElementById('root')
+// )
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-)
-
-ReactDOM.render(
-  <LifeCycle />,
+  <CarSample title="react shop"/>,
   document.getElementById('root')
 )
 // function tick() {
