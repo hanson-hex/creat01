@@ -1,13 +1,33 @@
-import React, { Component } from 'react'
+import React, { Component, PureComponent } from 'react'
+//
+// class Comment extends PureComponent {
+//   // shouldComponentUpdate (nextProps) {
+//   //   if (nextProps.data.body === this.props.data.body &&
+//   //       nextProps.data.author === this.props.data.author) {
+//   //     return false
+//   //   }
+//   //   return true
+//   // }
+//   render () {
+//     console.log('render')
+//     return (
+//       <div>
+//         <p>{this.props.body}</p>
+//         <p>{this.props.author}</p>
+//       </div>
+//     )
+//   }
+// }
 
-function Comment({data}) {
+const Comment = React.memo(({ body, author }) => {
+  console.log('render')
   return (
     <div>
-      <p>{data.body}</p>
-      <p>{data.author}</p>
+      <p>{body}</p>
+      <p>{author}</p>
     </div>
   )
-}
+})
 
 export default class CommentList extends Component {
   constructor (props) {
@@ -17,7 +37,7 @@ export default class CommentList extends Component {
     }
   }
   componentDidMount () {
-    setTimeout(() => {
+    setInterval(() => {
       this.setState({
         comments: [
           {body: 'react is very good', author: 'facebook'},
@@ -30,7 +50,7 @@ export default class CommentList extends Component {
     return (
       <div>
         {this.state.comments.map((c, i) => (
-          <Comment key={i} data={c}></Comment>
+          <Comment key={i} {...c}></Comment>
         ))}
       </div>
     )

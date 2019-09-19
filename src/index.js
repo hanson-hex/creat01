@@ -5,14 +5,25 @@ import  "./App.css"
 import LifeCycle from "./LifeCycle";
 import CarSample from './CartSample'
 import CommentList from './components/CommentList'
+import Compostions from "./components/Compostions";
+import HOC from "./components/HOC";
 // ReactDOM.render(
 //   <App />,
 //   document.getElementById('root')
 // )
+// ReactDOM.render(
+//   <CommentList />,
+//   document.getElementById('root')
+// )
+
 ReactDOM.render(
-  <CommentList />,
+  <HOC stage="1" />,
   document.getElementById('root')
 )
+// ReactDOM.render(
+//   <Compostions />,
+//   document.getElementById('root')
+// )
 // ReactDOM.render(
 //   <LifeCycle />,
 //   document.getElementById('root')
