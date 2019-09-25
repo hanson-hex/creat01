@@ -63,11 +63,6 @@ function render () {
       <ReduxTest/>
     </Provider>
     ), document.getElementById('root'))
-  // ReactDOM.render((
-  //   <Provider store={store}>
-  //     <ReduxTest/>
-  //   </Provider>)
-  //   , document.getElementById('root'))
 }
 render()
 // store.subscribe(() => {
