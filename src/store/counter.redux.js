@@ -19,7 +19,8 @@ function minus() {
 }
 
 function asyncAdd() {
-    return (dispatch, state) => {
+    return (dispatch, getState) => {
+      console.log(getState())
       setTimeout(() => {
         dispatch({ type: 'add' })
       }, 1000)

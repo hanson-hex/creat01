@@ -39,12 +39,12 @@ class ReduxTest extends Component {
     )
   }
 }
-
-const mapStateToProps = state => ({ num: state })
-const mapDispatchToProps = dispatch => ({
-  add: () => dispatch({ type: 'add' }),
-  minus: () => dispatch({ type: 'minus' })
-})
+//
+// const mapStateToProps = state => ({ num: state })
+// const mapDispatchToProps = dispatch => ({
+//   add: () => dispatch({ type: 'add' }),
+//   minus: () => dispatch({ type: 'minus' })
+// })
 //
 // export default connect(
 //   mapStateToProps,

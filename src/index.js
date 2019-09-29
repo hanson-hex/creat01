@@ -13,6 +13,7 @@ import store from './store'
 import ReduxTest from "./components/ReduxTest";
 
 import { Provider } from 'react-redux'
+import RouterSample from "./components/RouterSample"
 // ReactDOM.render(
 //   <App />,
 //   document.getElementById('root')
@@ -21,6 +22,11 @@ import { Provider } from 'react-redux'
 //   <CommentList />,
 //   document.getElementById('root')
 // )
+
+ReactDOM.render(
+  <RouterSample />,
+  document.getElementById('root')
+)
 
 // ReactDOM.render(
 //   <HOC stage="1" />,
@@ -64,7 +70,7 @@ function render () {
     </Provider>
     ), document.getElementById('root'))
 }
-render()
+// render()
 // store.subscribe(() => {
 //   render()
 // })

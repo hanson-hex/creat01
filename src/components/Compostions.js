@@ -37,7 +37,7 @@ function FilterP(props) {
     <div>
       {
         React.Children.map(props.children, child => {
-          if (child.type != 'p') {
+          if (child.type !== 'p') {
             return
           }
           return child
