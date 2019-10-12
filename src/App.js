@@ -49,6 +49,7 @@ class App extends Component {
     return (
       <div className="App">
         App组件
+        <Button type="primary">点击</Button>
         {/*{ 表达式}*/}
         <h1>{ name } </h1>
         <p>{ this.formatName({firstName: 'tom', lastName: 'hex'}) } </p>

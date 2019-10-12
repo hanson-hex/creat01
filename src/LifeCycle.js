@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class LifeCycle extends Component {
+class LifeCycle extends Component {
   constructor (props) {
     super(props)
     console.log('构造函数')
@@ -30,5 +30,22 @@ export default class LifeCycle extends Component {
   render () {
     console.log('组件渲染')
     return <div>生命周期</div>
+  }
+}
+
+export default class extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      someProp: 'some prop'
+    }
+    setTimeout(() => {
+      this.setState({
+        someProp: 'a new prop'
+      })
+    }, 1000)
+  }
+  render () {
+    return <LifeCycle prop={this.state.someProp}/>
   }
 }
