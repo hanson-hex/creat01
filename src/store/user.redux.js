@@ -11,10 +11,16 @@ export default (state = initialState, { type, payload }) => {
   }
 }
 
+// for redux-thunk
 export function login() {
   return (dispatch) => {
     setTimeout(() => {
       dispatch({ type: 'login' })
-    })
+    }, 1000)
   }
 }
+
+// // for saga
+// export function login() {
+//   return { type: 'login_request' }
+// }

@@ -58,21 +58,50 @@ function Detail({ match, history, location }) {
   </div>)
 }
 
-@connect(
-  state => ({ isLogin: state.user.isLogin })
-)
-class PrivateRoute extends Component{
 
-  render () {
-    console.log('this.props.isLogin:', this.props.isLogin)
-    return (<Route {...this.props} render={
-      (props) => this.props.isLogin ? (<Component {...props} />) : (<Redirect to={{
-        pathname: '/login', state: { from: props.location.pathname }
-      }} />)
-    }></Route>)
+// 路由守卫：定义可以验证的高阶组件
+@connect(state => ({ isLogin: state.user.isLogin }))
+class PrivateRoute extends Component {
+  render() {
+    const { isLogin, component: Component, ...rest } = this.props;
+    // redner和component选项二选一
+    return (
+      <Route
+        {...rest}
+        render={props =>
+          isLogin ? (
+            <Component {...props} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: props.location.pathname }
+              }}
+            />
+          )
+        }
+      />
+    );
   }
 }
 
+// function PrivateRoute({ component: Component, ...rest }) {
+//   return (
+//     <Route
+//       {...rest}
+//       render={props =>
+//         auth.isLogin ? (<Component {...props}/>) : (
+//           <Redirect
+//             to={{
+//             pathname: '/login',
+//               state: { from: props.location.pathname }
+//             }}
+//           />)
+//       }
+//     />
+//   )
+// }
+//
 // const auth = {
 //   isLogin: false,
 //   login(cb) {
@@ -89,6 +118,7 @@ class PrivateRoute extends Component{
 )
 class Login extends Component {
   render () {
+    console.log('this.props.location.state:', this.props)
     const from = this.props.location.state.from || '/'
     console.log('this.props:', this.props)
     console.log('from:', from)
@@ -103,6 +133,31 @@ class Login extends Component {
     )
   }
 }
+
+// class Login extends Component {
+//   state = {isLogin: false}
+//   login = () => {
+//     auth.login(() => {
+//       this.setState({isLogin: true})
+//     })
+//   }
+//
+//   render() {
+//     const from = this.props.location.state.from || '/'
+//     console.log('this.props:', this.props)
+//     console.log('from:', from)
+//     if (this.state.isLogin) {
+//       return <Redirect to={from}></Redirect>
+//     }
+//     return (
+//       <div>
+//         <p>请先登录</p>
+//         <button onClick={this.login}>登录</button>
+//       </div>
+//     )
+//   }
+// }
+
 
 function NoMatch(props) {
   return <div>404</div>
@@ -138,6 +193,7 @@ export default class RouterSample extends Component {
   render () {
     return (
       <BrowserRouter>
+        {/*<App></App>*/}
         <Provider store={store}>
         <App></App>
         </Provider>
